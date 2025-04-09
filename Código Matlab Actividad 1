@@ -86,8 +86,7 @@ pcm_levels = 2^N;
 pcm_signal_inst = round((m_t_inst + 1) * (pcm_levels - 1) / 2); 
 m_t_norm = (m_t - min(m_t)) / (max(m_t) - min(m_t));
 m_t_inst_norm = (m_t_inst - min(m_t_inst)) / (max(m_t_inst) - min(m_t_inst));
-pcm_signal_inst_norm = (pcm_signal_inst - min(pcm_signal_inst)) / ...
-(max(pcm_signal_inst) - min(pcm_signal_inst));
+pcm_signal_inst_norm = (pcm_signal_inst - min(pcm_signal_inst)) /(max(pcm_signal_inst) - min(pcm_signal_inst));
 quantization_error_inst = m_t_inst - ((2 * pcm_signal_inst / (pcm_levels - 1)) - 1);
 figure;
 plot(t, m_t_norm, 'b', 'LineWidth', 1.5);
@@ -119,8 +118,7 @@ for i = 1:length(Ns)
     N = Ns(i); 
     pcm_levels = 2^N;
     pcm_signal_inst = round((m_t_inst + 1) * (pcm_levels - 1) / 2);
-    pcm_signal_inst_norm = (pcm_signal_inst - min(pcm_signal_inst)) / ...
-        (max(pcm_signal_inst) - min(pcm_signal_inst));
+    pcm_signal_inst_norm = (pcm_signal_inst - min(pcm_signal_inst)) / (max(pcm_signal_inst) - min(pcm_signal_inst));
     quantization_error_inst = m_t_inst - ((2 * pcm_signal_inst / (pcm_levels - 1)) - 1);
     plot(t, quantization_error_inst, 'Color', colors(i), 'LineWidth', 1.5);
     hold on;
